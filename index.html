@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Jordan - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%; /* 1rem = 10px */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        .section-title {
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 5rem;
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #b74b4b;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(183, 75, 75, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #b74b4b;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #b74b4b;
+            border-bottom-color: #b74b4b;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.4rem;
+        }
+
+        .hamburger span {
+            width: 2.5rem;
+            height: 0.3rem;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(0.5rem, 0.5rem);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(0.7rem, -0.6rem);
+        }
+
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 0 5rem;
+        }
+
+        .home-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .home-text h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .home-text h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .home-text p {
+            font-size: 1.6rem;
+            color: #aaaaaa;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .location-info {
+            margin-bottom: 2rem;
+        }
+
+        .location-info p {
+            font-size: 1.4rem;
+            color: #aaaaaa;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .location-info i {
+            color: #b74b4b;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons a {
+            width: 5rem;
+            height: 5rem;
+            background: transparent;
+            border: 2px solid #b74b4b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b74b4b;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #b74b4b;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #b74b4b;
+            color: #ffffff;
+            padding: 1.5rem 3rem;
+            border-radius: 5rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(183, 75, 75, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #a03d3d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(183, 75, 75, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #b74b4b;
+            border: 2px solid #b74b4b;
+            padding: 1.3rem 3rem;
+            border-radius: 5rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #b74b4b;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 40rem;
+            height: 50rem;
+            border-radius: 2rem;
+            border: 4px solid #b74b4b;
+            box-shadow: 0 0 30px rgba(183, 75, 75, 0.3);
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(183, 75, 75, 0.5);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 10rem 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+            gap: 4rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(183, 75, 75, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(183, 75, 75, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #b74b4b;
+            margin-bottom: 2rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-card li i {
+            color: #b74b4b;
+            font-size: 1.2rem;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 10rem 0;
+        }
+
+        .education-timeline {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(183, 75, 75, 0.2);
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            border-color: rgba(183, 75, 75, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .education-content h3 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #b74b4b;
+            margin-bottom: 1rem;
+        }
+
+        .education-period {
+            font-size: 1.6rem;
+            color: #aaaaaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .education-content li {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .education-content li::before {
+            content: "•";
+            color: #b74b4b;
+            position: absolute;
+            left: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 10rem 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Experience Section with Images - Consistent with Projects */
+        .experience-with-images {
+            margin-bottom: 6rem;
+        }
+
+        .experience-image-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 8rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(183, 75, 75, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .experience-image-item:hover {
+            border-color: rgba(183, 75, 75, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .experience-image-item.reverse {
+            direction: rtl;
+        }
+
+        .experience-image-item.reverse > * {
+            direction: ltr;
+        }
+
+        .experience-image-gallery {
+            position: relative;
+        }
+
+        .experience-slider {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .exp-slide {
+            display: none;
+        }
+
+        .exp-slide.active {
+            display: block;
+        }
+
+        .exp-slide img {
+            width: 100%;
+            height: 30rem;
+            object-fit: cover;
+        }
+
+        .exp-slider-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .exp-prev-btn,
+        .exp-next-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .exp-prev-btn:hover,
+        .exp-next-btn:hover {
+            background: rgba(183, 75, 75, 0.8);
+        }
+
+        .exp-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .exp-dot {
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .exp-dot.active,
+        .exp-dot:hover {
+            background: #b74b4b;
+        }
+
+        .experience-image-content h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #b74b4b;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-location {
+            font-size: 1.6rem;
+            color: #aaaaaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-subtitle {
+            font-size: 1.6rem;
+            color: #cccccc;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .experience-image-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-image-content li {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .experience-image-content li::before {
+            content: "•";
+            color: #b74b4b;
+            position: absolute;
+            left: 0;
+            font-size: 1.8rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+            gap: 4rem;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(183, 75, 75, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(183, 75, 75, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .experience-card h3 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #b74b4b;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+        }
+
+        .experience-card li {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: "•";
+            color: #b74b4b;
+            position: absolute;
+            left: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 10rem 0;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 8rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(183, 75, 75, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-color: rgba(183, 75, 75, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .project-item.reverse {
+            direction: rtl;
+        }
+
+        .project-item.reverse > * {
+            direction: ltr;
+        }
+
+        .project-images {
+            position: relative;
+        }
+
+        .image-slider {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 30rem;
+            object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .prev-btn,
+        .next-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .prev-btn:hover,
+        .next-btn:hover {
+            background: rgba(183, 75, 75, 0.8);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .dot {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background: #b74b4b;
+        }
+
+        .project-content h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #b74b4b;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-content p {
+            font-size: 1.6rem;
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .tech-stack h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(183, 75, 75, 0.2);
+            color: #b74b4b;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            border: 1px solid rgba(183, 75, 75, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .project-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 10rem 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .contact-content {
+            max-width: 60rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            font-size: 1.8rem;
+            color: #cccccc;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+            color: #cccccc;
+        }
+
+        .contact-item i {
+            color: #b74b4b;
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(183, 75, 75, 0.2);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 1.4rem;
+            color: #aaaaaa;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .home-text,
+        .home-image,
+        .skill-card,
+        .education-item,
+        .experience-card,
+        .project-item,
+        .experience-image-item {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            html {
+                font-size: 56.25%; /* 9px */
+            }
+            
+            .container {
+                padding: 0 3rem;
+            }
+            
+            .home-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+            
+            .image-container img {
+                width: 35rem;
+                height: 42rem;
+            }
+            
+            .project-item,
+            .experience-image-item {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .project-item.reverse,
+            .experience-image-item.reverse {
+                direction: ltr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 50%; /* 8px */
+            }
+            
+            .nav {
+                position: fixed;
+                top: 7rem;
+                right: -100%;
+                width: 30rem;
+                height: calc(100vh - 7rem);
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 5rem 0;
+                transition: right 0.3s ease;
+                border-left: 1px solid rgba(183, 75, 75, 0.2);
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .nav-link {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .home {
+                padding: 8rem 0 5rem;
+            }
+            
+            .home-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .home-text h3 {
+                font-size: 2rem;
+            }
+            
+            .image-container img {
+                width: 30rem;
+                height: 36rem;
+                border: 3px solid #b74b4b;
+            }
+            
+            .skills-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .experience-image-item {
+                padding: 2rem;
+                gap: 2rem;
+            }
+            
+            .exp-slide img {
+                height: 25rem;
+            }
+            
+            .experience-image-content h3 {
+                font-size: 2rem;
+            }
+            
+            .experience-image-content li {
+                font-size: 1.4rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .project-links a {
+                justify-content: center;
+            }
+            
+            .tech-tags {
+                justify-content: center;
+            }
+            
+            .slider-dots,
+            .exp-slider-dots {
+                gap: 0.5rem;
+            }
+            
+            .dot,
+            .exp-dot {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .home-text h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .image-container img {
+                width: 25rem;
+                height: 30rem;
+                border: 2px solid #b74b4b;
+                border-radius: 1.5rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .social-icons a {
+                width: 4rem;
+                height: 4rem;
+                font-size: 1.8rem;
+            }
+            
+            .project-item,
+            .experience-image-item {
+                padding: 2.5rem;
+            }
+            
+            .slide img,
+            .exp-slide img {
+                height: 20rem;
+            }
+            
+            .experience-image-content h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .image-container img {
+                width: 22rem;
+                height: 26rem;
+            }
+            
+            .home-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .home-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .home-text p {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+            .home-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+            }
+            
+            .image-container img {
+                width: 25rem;
+                height: 30rem;
+            }
+            
+            .home {
+                padding: 6rem 0 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo"></div>
+            <nav class="nav" id="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="container">
+            <div class="home-content">
+
+                <div class="home-image">
+                    <div class="image-container">
+                        <img src="Jordan_Porto.JPG" alt="Muhammad Jordan's Profile">
+                    </div>
+                </div>
+
+                <div class="home-text">
+                    <h1>Hi, My name is <span class="highlight">Muhammad Jordan</span></h1>
+                    <h3>I'm a <span class="highlight typing-text">Information Systems Student</span></h3>
+                    <p>5th-semester Information Systems student at Telkom University (GPA 3.75) with strong skills in web development using Laravel, HTML, CSS, and JavaScript, as well as data analytics and visualization with Python. A fast learner, adaptable, and highly curious, with a passion for solving complex problems.</p>
+                    
+                    <div class="location-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Banten, South Tangerang</p>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/muhammad-jordan-805a91291/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/jordanngz" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jordanngz/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="cv-button">
+                        <a href="https://drive.google.com/file/d/1Zp3p-x2Njpebyp1QLOBoiDNBS3sNk5GL/view?usp=sharing" class="btn-primary">Download My CV</a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Web Development (Laravel, HTML, CSS, JavaScript, PHP)</li>
+                        <li><i class="fas fa-check"></i> Database Management (MySQL)</li>
+                        <li><i class="fas fa-check"></i> Data Analytics & Visualization (Python, Pandas, Matplotlib, Seaborn, Tableau)</li>
+                        <li><i class="fas fa-check"></i> UI/UX Design (Figma, User Flows, Wireframing)</li>
+                        <li><i class="fas fa-check"></i> Office & Productivity Tools (Microsoft Office, Notion)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Soft Skills & Languages</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Adaptability & Problem Solving</li>
+                        <li><i class="fas fa-check"></i> Communication & Leadership</li>
+                        <li><i class="fas fa-check"></i> Teamwork & Creativity</li>
+                        <li><i class="fas fa-check"></i> Curiosity & Fast Learning</li>
+                        <li><i class="fas fa-check"></i> English (Upper-Intermediate)</li>
+                        <li><i class="fas fa-check"></i> Bahasa Indonesia (Proficient)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Education</span></h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-content">
+                        <h3>Telkom University, Indonesia</h3>
+                        <p class="education-period">Bachelor's Degree in Information Systems (GPA: 3.75) | August 2023 - Present</p>
+                        <ul>
+                            <li>Focus on programming, data analysis, and information systems management.</li>
+                            <li>Engaged in practical projects and active involvement in student organizations to strengthen technical and soft skills.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Experience</span></h2>
+            
+            <!-- Experience with Images -->
+            <div class="experience-with-images">
+                <!-- Laboratory Assistant -->
+                <div class="experience-image-item">
+                    <div class="experience-image-gallery">
+                        <div class="experience-slider" id="lab-slider">
+                            <div class="exp-slide active">
+                                <img src="Ngajar.jpg" alt="Laboratory Assistant Teaching">
+                            </div>
+                            <div class="exp-slide">
+                                <img src="sertif_pbo.jpg" alt="OOP Java Certificate">
+                            </div>
+                            <div class="exp-slide">
+                                <img src="sertif_psi.jpg" alt="Information Systems Certificate">
+                            </div>
+                        </div>
+                        <div class="exp-slider-controls">
+                            <button class="exp-prev-btn" onclick="changeExpSlide('lab-slider', -1)">❮</button>
+                            <button class="exp-next-btn" onclick="changeExpSlide('lab-slider', 1)">❯</button>
+                        </div>
+                        <div class="exp-slider-dots">
+                            <span class="exp-dot active" onclick="currentExpSlide('lab-slider', 1)"></span>
+                            <span class="exp-dot" onclick="currentExpSlide('lab-slider', 2)"></span>
+                            <span class="exp-dot" onclick="currentExpSlide('lab-slider', 3)"></span>
+                        </div>
+                    </div>
+                    <div class="experience-image-content">
+                        <h3>Laboratory Assistant (Part-time)</h3>
+                        <p class="experience-location">📍 Telkom University | Sep 2024 - Jun 2025</p>
+                        <p class="experience-subtitle">OOP Java & Introduction to Information Systems</p>
+                        <ul>
+                            <li>Supervised and mentored approximately 40 students in lab sessions</li>
+                            <li>Teaching practical skills in Word and Excel for data processing</li>
+                            <li>Managed lab equipment and maintained software environments</li>
+                            <li>Prepared teaching materials and lab modules</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WebVenture Mentor -->
+                <div class="experience-image-item reverse">
+                    <div class="experience-image-gallery">
+                        <div class="experience-slider" id="mentor-slider">
+                            <div class="exp-slide active">
+                                <img src="mentor_1.JPG" alt="WebVenture Mentoring Session">
+                            </div>
+                            <div class="exp-slide">
+                                <img src="mentor_2.JPG" alt="WebVenture Workshop">
+                            </div>
+                            <div class="exp-slide">
+                                <img src="sertif_mentor.png" alt="Mentor Certificate">
+                            </div>
+                        </div>
+                        <div class="exp-slider-controls">
+                            <button class="exp-prev-btn" onclick="changeExpSlide('mentor-slider', -1)">❮</button>
+                            <button class="exp-next-btn" onclick="changeExpSlide('mentor-slider', 1)">❯</button>
+                        </div>
+                        <div class="exp-slider-dots">
+                            <span class="exp-dot active" onclick="currentExpSlide('mentor-slider', 1)"></span>
+                            <span class="exp-dot" onclick="currentExpSlide('mentor-slider', 2)"></span>
+                            <span class="exp-dot" onclick="currentExpSlide('mentor-slider', 3)"></span>
+                        </div>
+                    </div>
+                    <div class="experience-image-content">
+                        <h3>Mentor - WebVenture Event</h3>
+                        <p class="experience-location">📍 Telkom University | May 30, 2025</p>
+                        <ul>
+                            <li>Mentored approximately 70 participants during the WebVenture event</li>
+                            <li>Guided participants through modern web development workshops</li>
+                            <li>Delivered engaging presentations and provided one-on-one support</li>
+                            <li>Received positive participant feedback for technical mentoring clarity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Experience Cards -->
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>External Secretary & Social Media Administrator</h3>
+                    <p class="experience-location">📍 HIMSI (Himpunan Mahasiswa Sistem Informasi) | Aug 2023 - Present</p>
+                    <ul>
+                        <li>Managed external communication and partnerships, representing HIMSI in collaborations</li>
+                        <li>Created social media content to boost HIMSI's online presence and engagement</li>
+                        <li>Built professional networks and maintained strong relationships with external partners</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Sponsorship Officer</h3>
+                    <p class="experience-location">📍 Inforvation Event Committee | May 2025 - Present</p>
+                    <ul>
+                        <li>Contacted potential sponsors and delivered presentations</li>
+                        <li>Conducted research to tailor proposals to corporate needs and profiles</li>
+                        <li>Contributed to fundraising efforts that exceeded targets</li>
+                        <li>Ensured smooth event execution through strong partner relationships</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Member</h3>
+                    <p class="experience-location">📍 Google Developer Student Clubs (GDSC) Telkom University | May 2025 - Present</p>
+                    <ul>
+                        <li>Participated in workshops, hackathons, and technical sessions</li>
+                        <li>Gained practical experience with Google technologies and modern development frameworks</li>
+                        <li>Collaborated on projects, improving skills in agile workflows and problem-solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+            
+            <!-- Project 1: Kerapu Fine Dining System -->
+            <div class="project-item">
+                <div class="project-images">
+                    <div class="image-slider" id="slider1">
+                        <div class="slide active">
+                            <img src="Kerapu_1.png" alt="Kerapu Fine Dining System - Home Page">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_2.png" alt="Kerapu Fine Dining System - Menu">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_3.png" alt="Kerapu Fine Dining System - Reservation">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_4.png" alt="Kerapu Fine Dining System - Dashboard">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_5.png" alt="Kerapu Fine Dining System - Admin Panel">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_6.png" alt="Kerapu Fine Dining System - Payment">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_7.png" alt="Kerapu Fine Dining System - Orders">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_9.png" alt="Kerapu Fine Dining System - Reports">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_10.png" alt="Kerapu Fine Dining System - Settings">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_11.png" alt="Kerapu Fine Dining System - User Management">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_12.png" alt="Kerapu Fine Dining System - Analytics">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_13.png" alt="Kerapu Fine Dining System - Inventory">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_14.png" alt="Kerapu Fine Dining System - Staff">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_15.png" alt="Kerapu Fine Dining System - Reviews">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_16.png" alt="Kerapu Fine Dining System - Notifications">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_17.png" alt="Kerapu Fine Dining System - Calendar">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_18.png" alt="Kerapu Fine Dining System - Mobile View">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_19.png" alt="Kerapu Fine Dining System - API">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_20.png" alt="Kerapu Fine Dining System - Database">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_21.png" alt="Kerapu Fine Dining System - Security">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_22.png" alt="Kerapu Fine Dining System - Backup">
+                        </div>
+                        <div class="slide">
+                            <img src="Kerapu_23.png" alt="Kerapu Fine Dining System - Documentation">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="prev-btn" onclick="changeSlide('slider1', -1)">❮</button>
+                        <button class="next-btn" onclick="changeSlide('slider1', 1)">❯</button>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide('slider1', 1)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 2)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 3)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 4)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 5)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 6)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 7)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 8)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 9)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 10)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 11)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 12)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 13)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 14)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 15)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 16)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 17)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 18)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 19)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 20)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 21)"></span>
+                        <span class="dot" onclick="currentSlide('slider1', 22)"></span>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>Kerapu Fine Dining System</h3>
+                    <p>Developed a comprehensive web-based restaurant reservation system with features including table booking, menu management, checkout process, and payment integration. Handled both backend and frontend development, including data validation, session management, and UI design.</p>
+                    
+                    <div class="tech-stack">
+                        <h4>🛠️ Tech Stack:</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/jordanngz/Deploy_Laravel_Kelompok-9" target="_blank" class="btn-secondary">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: Data Analyst Dashboard -->
+            <div class="project-item reverse">
+                <div class="project-images">
+                    <div class="image-slider" id="slider2">
+                        <div class="slide active">
+                            <img src="data_1.png" alt="Data Dashboard - Overview">
+                        </div>
+                        <div class="slide">
+                            <img src="data_2.png" alt="Data Dashboard - Analytics">
+                        </div>
+                        <div class="slide">
+                            <img src="data_3.png" alt="Data Dashboard - Charts">
+                        </div>
+                        <div class="slide">
+                            <img src="data_4.png" alt="Data Dashboard - Reports">
+                        </div>
+                        <div class="slide">
+                            <img src="data_5.png" alt="Data Dashboard - Insights">
+                        </div>
+                        <div class="slide">
+                            <img src="data_6.png" alt="Data Dashboard - Visualization">
+                        </div>
+                        <div class="slide">
+                            <img src="data_7.png" alt="Data Dashboard - Export">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="prev-btn" onclick="changeSlide('slider2', -1)">❮</button>
+                        <button class="next-btn" onclick="changeSlide('slider2', 1)">❯</button>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide('slider2', 1)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 2)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 3)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 4)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 5)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 6)"></span>
+                        <span class="dot" onclick="currentSlide('slider2', 7)"></span>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>Data Analyst Dashboard</h3>
+                    <p>Built an interactive dashboard for analyzing e-commerce data. Created visualizations for sales performance, customer segmentation, and data-driven insights to support business decisions.</p>
+                    
+                    <div class="tech-stack">
+                        <h4>🛠️ Tech Stack:</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Seaborn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://dicoding-analysis-data-xxmmyknku5hxewfbrcd8ck.streamlit.app/" target="_blank" class="btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/jordanngz/Dicoding-Analysis-Data" target="_blank" class="btn-secondary">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: Inforvation Web -->
+            <div class="project-item">
+                <div class="project-images">
+                    <div class="image-slider" id="slider3">
+                        <div class="slide active">
+                            <img src="inforvation_1.png" alt="Inforvation - Landing Page">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_2.png" alt="Inforvation - About Section">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_3.png" alt="Inforvation - Timeline">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_4.png" alt="Inforvation - Registration">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_5.png" alt="Inforvation - Speakers">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_6.png" alt="Inforvation - Schedule">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_7.png" alt="Inforvation - Sponsors">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_8.png" alt="Inforvation - Gallery">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_9.png" alt="Inforvation - Contact">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_10.png" alt="Inforvation - FAQ">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_11.png" alt="Inforvation - Mobile View">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_12.png" alt="Inforvation - Footer">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_13.png" alt="Inforvation - Navigation">
+                        </div>
+                        <div class="slide">
+                            <img src="inforvation_14.png" alt="Inforvation - Responsive">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="prev-btn" onclick="changeSlide('slider3', -1)">❮</button>
+                        <button class="next-btn" onclick="changeSlide('slider3', 1)">❯</button>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide('slider3', 1)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 2)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 3)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 4)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 5)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 6)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 7)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 8)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 9)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 10)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 11)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 12)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 13)"></span>
+                        <span class="dot" onclick="currentSlide('slider3', 14)"></span>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>Inforvation Web</h3>
+                    <p>Designed and developed a landing page for the Inforvation event, presenting event information, timelines, and registration calls-to-action. Focused on layout structure, styling, and responsive design.</p>
+                    
+                    <div class="tech-stack">
+                        <h4>🛠️ Tech Stack:</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://inforvation-web.vercel.app/" target="_blank" class="btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/jordanngz/INVORVATION-WEB" target="_blank" class="btn-secondary">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Personal Portfolio -->
+            <div class="project-item reverse">
+                <div class="project-images">
+                    <div class="image-slider" id="slider4">
+                        <div class="slide active">
+                            <img src="Porto_1.png" alt="Portfolio - Home Page">
+                        </div>
+                        <div class="slide">
+                            <img src="Porto_2.png" alt="Portfolio - About Section">
+                        </div>
+                        <div class="slide">
+                            <img src="Porto_3.png" alt="Portfolio - Projects">
+                        </div>
+                        <div class="slide">
+                            <img src="Porto_4.png" alt="Portfolio - Skills">
+                        </div>
+                        <div class="slide">
+                            <img src="Porto_5.png" alt="Portfolio - Experience">
+                        </div>
+                        <div class="slide">
+                            <img src="Porto_6.png" alt="Portfolio - Contact">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="prev-btn" onclick="changeSlide('slider4', -1)">❮</button>
+                        <button class="next-btn" onclick="changeSlide('slider4', 1)">❯</button>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide('slider4', 1)"></span>
+                        <span class="dot" onclick="currentSlide('slider4', 2)"></span>
+                        <span class="dot" onclick="currentSlide('slider4', 3)"></span>
+                        <span class="dot" onclick="currentSlide('slider4', 4)"></span>
+                        <span class="dot" onclick="currentSlide('slider4', 5)"></span>
+                        <span class="dot" onclick="currentSlide('slider4', 6)"></span>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Created a personal website to showcase profile, experiences, and project portfolio. Focused on clean design, interactivity, and responsive layout for different devices.</p>
+                    
+                    <div class="tech-stack">
+                        <h4>🛠️ Tech Stack:</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/jordanngz/Portofolio_Jordan" target="_blank" class="btn-secondary">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>WhatsApp: +62-856-9351-6592</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: jordanngz12@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/muhammad-jordan-805a91291/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/jordanngz" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jordanngz/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Muhammad Jordan. Built with ❤️ using HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Active Navigation Link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Project Image Slider Functionality
+        let slideIndex = {
+            slider1: 1,
+            slider2: 1,
+            slider3: 1,
+            slider4: 1
+        };
+
+        function changeSlide(sliderId, direction) {
+            const slides = document.querySelectorAll(`#${sliderId} .slide`);
+            const dots = document.querySelectorAll(`#${sliderId} + .slider-controls + .slider-dots .dot`);
+            
+            // Hide current slide
+            slides[slideIndex[sliderId] - 1].classList.remove('active');
+            dots[slideIndex[sliderId] - 1].classList.remove('active');
+            
+            // Update slide index
+            slideIndex[sliderId] += direction;
+            
+            if (slideIndex[sliderId] > slides.length) {
+                slideIndex[sliderId] = 1;
+            }
+            if (slideIndex[sliderId] < 1) {
+                slideIndex[sliderId] = slides.length;
+            }
+            
+            // Show new slide
+            slides[slideIndex[sliderId] - 1].classList.add('active');
+            dots[slideIndex[sliderId] - 1].classList.add('active');
+        }
+
+        function currentSlide(sliderId, slideNumber) {
+            const slides = document.querySelectorAll(`#${sliderId} .slide`);
+            const dots = document.querySelectorAll(`#${sliderId} + .slider-controls + .slider-dots .dot`);
+            
+            // Hide current slide
+            slides[slideIndex[sliderId] - 1].classList.remove('active');
+            dots[slideIndex[sliderId] - 1].classList.remove('active');
+            
+            // Update slide index
+            slideIndex[sliderId] = slideNumber;
+            
+            // Show new slide
+            slides[slideIndex[sliderId] - 1].classList.add('active');
+            dots[slideIndex[sliderId] - 1].classList.add('active');
+        }
+
+        // Experience Image Slider Functionality
+        let expSlideIndex = {
+            'lab-slider': 1,
+            'mentor-slider': 1
+        };
+
+        function changeExpSlide(sliderId, direction) {
+            const slides = document.querySelectorAll(`#${sliderId} .exp-slide`);
+            const dots = document.querySelectorAll(`#${sliderId} + .exp-slider-controls + .exp-slider-dots .exp-dot`);
+            
+            // Hide current slide
+            slides[expSlideIndex[sliderId] - 1].classList.remove('active');
+            dots[expSlideIndex[sliderId] - 1].classList.remove('active');
+            
+            // Update slide index
+            expSlideIndex[sliderId] += direction;
+            
+            if (expSlideIndex[sliderId] > slides.length) {
+                expSlideIndex[sliderId] = 1;
+            }
+            if (expSlideIndex[sliderId] < 1) {
+                expSlideIndex[sliderId] = slides.length;
+            }
+            
+            // Show new slide
+            slides[expSlideIndex[sliderId] - 1].classList.add('active');
+            dots[expSlideIndex[sliderId] - 1].classList.add('active');
+        }
+
+        function currentExpSlide(sliderId, slideNumber) {
+            const slides = document.querySelectorAll(`#${sliderId} .exp-slide`);
+            const dots = document.querySelectorAll(`#${sliderId} + .exp-slider-controls + .exp-slider-dots .exp-dot`);
+            
+            // Hide current slide
+            slides[expSlideIndex[sliderId] - 1].classList.remove('active');
+            dots[expSlideIndex[sliderId] - 1].classList.remove('active');
+            
+            // Update slide index
+            expSlideIndex[sliderId] = slideNumber;
+            
+            // Show new slide
+            slides[expSlideIndex[sliderId] - 1].classList.add('active');
+            dots[expSlideIndex[sliderId] - 1].classList.add('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.skill-card, .education-item, .experience-card, .project-item, .experience-image-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
